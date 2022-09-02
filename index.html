@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>The Imprint | Youth & Family News</title>
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="Images/news-icon.jpg" type="image/x-icon" />
+
+        <!-- Tailwind CSS Linked -->
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- TailwindCSS Custom Style -->
+        <script>
+            tailwind.config = {
+                theme: {
+                    screens: {
+                        xs: "448px",
+                        sm: "640px",
+                        md: "768px",
+                        lg: "1024px",
+                        xl: "1280px",
+                        xxl: "1600px",
+                    },
+                    extend: {
+                        colors: {
+                            accent: "#0F3D3E",
+                            dark: "#100F0F",
+                            light: "#F1F1F1",
+                        },
+                    },
+                    fontFamily: {
+                        sans: ["Poppins", "sans-serif"],
+                    },
+                },
+            };
+        </script>
+
+        <!-- Reusable Custom TailwindCSS components -->
+        <style type="text/tailwindcss">
+            @layer components {
+                .btn {
+                    @apply px-4 py-2 font-medium rounded;
+                }
+                .btn-secondary {
+                    @apply relative border border-accent bg-light text-accent hover:bg-accent hover:text-light hover:transition hover:ease-in hover:delay-150;
+                }
+                .btn-animation {
+                    @apply absolute w-full h-full bg-accent border border-accent rounded left-0 top-0 transition duration-200 ease-in transform translate-x-1 translate-y-1 group-hover:-translate-x-0 group-hover:-translate-y-0 -z-10;
+                }
+                .nav-item {
+                    @apply relative text-base sm:text-xl font-semibold after:content-[''] hover:text-accent after:absolute after:w-full after:h-[2.5px] after:bg-accent after:left-0 after:bottom-0 after:transition after:ease-in-out after:scale-0 hover:after:scale-100;
+                }
+                .nav-news {
+                    @apply text-gray-500 hover:text-black hover:font-medium transition-all ease-in-out cursor-pointer;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- JavaScript File Linked  -->
+        <script src="JavaScript/utility.js"></script>
+        <script src="JavaScript/scripts.js"></script>
+    </body>
+</html>
