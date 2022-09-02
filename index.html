@@ -76,10 +76,12 @@
         <main class="container mx-auto my-6 flex flex-col gap-6">
             <!-- News Category Navigation -->
             <nav class="flex gap-6" id="news-category">
-                <h3 class="nav-news">Home</h3>
+                <div><h3 class="nav-news" onclick="">Home</h3></div>
             </nav>
             <div class="p-6 bg-light rounded-lg">
-                <p class="font-medium"><span></span> Items Found For Category <span></span></p>
+                <p class="font-medium">
+                    <span id="total-news"></span> Items Found For Category <span id="category"></span>
+                </p>
             </div>
             <!-- Sort By Section -->
             <div class="flex justify-between">
