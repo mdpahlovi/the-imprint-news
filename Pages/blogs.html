@@ -7,7 +7,7 @@
         <title>The Imprint | Youth & Family News</title>
 
         <!-- Favicon -->
-        <link rel="shortcut icon" href="Images/news-icon.jpg" type="image/x-icon" />
+        <link rel="shortcut icon" href="../Images/news-icon.jpg" type="image/x-icon" />
 
         <!-- Font Awesome -->
         <link
@@ -18,8 +18,9 @@
             referrerpolicy="no-referrer"
         />
 
-        <!-- Tailwind CSS Linked -->
+        <!-- Tailwind CSS & Flowbite Linked -->
         <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
 
         <!-- TailwindCSS Custom Style -->
         <script>
@@ -72,47 +73,21 @@
         <header>
             <!-- Navigation Bar -->
             <nav class="container mx-auto px-6 h-16 sm:h-20 flex justify-between items-center">
-                <img class="w-24 sm:w-36" src="Images/Imprint-logo.png" alt="" />
+                <img class="w-24 sm:w-36" src="../Images/Imprint-logo.png" alt="" />
                 <div class="flex gap-6">
-                    <h3 class="nav-item"><a href="index.html">News</a></h3>
-                    <h3 class="nav-item"><a href="Pages\blogs.html">Blogs</a></h3>
-                    <img class="w-8 rounded-full hidden sm:block" src="Images/Pahlovi.png" alt="" />
+                    <h3 class="nav-item"><a href="../index.html">News</a></h3>
+                    <h3 class="nav-item"><a href="blogs.html">Blogs</a></h3>
+                    <img class="w-8 rounded-full hidden sm:block" src="../Images/Pahlovi.png" alt="" />
                 </div>
             </nav>
             <hr class="container mx-auto p-[0.5px] bg-gray-400" />
+            <section
+                class="w-full h-[600px] bg-cover bg-center"
+                style="background-image: url(../Images/blogs-bg.jpg)"
+            ></section>
         </header>
 
-        <main class="container mx-auto px-6 my-6 flex flex-col gap-6">
-            <!-- News Category Navigation -->
-            <nav class="flex flex-wrap gap-x-6 gap-y-3" id="news-category">
-                <div><h3 class="nav-news" onclick="">Home</h3></div>
-            </nav>
-            <div class="p-6 bg-light rounded-lg">
-                <p class="font-medium">
-                    <span id="total-news"></span> Items Found For Category <span id="category"></span>
-                </p>
-            </div>
-            <!-- Sort By Section -->
-            <div class="flex justify-between">
-                <div>
-                    <label for="countries" class="font-medium">Sort By View : </label>
-                    <select id="countries" class="px-1 py-2 bg-light rounded text-sm font-medium">
-                        <option selected>Default</option>
-                        <option value="view">View</option>
-                        <option value="time">Time</option>
-                    </select>
-                </div>
-                <div class="hidden sm:flex gap-7">
-                    <button class="group btn btn-secondary">Today's Pick <span class="btn-animation"></span></button>
-                    <button class="group btn btn-secondary">Trending <span class="btn-animation"></span></button>
-                </div>
-            </div>
-            <!-- News Card Section -->
-            <div class="grid grid-cols-1 xxl:grid-cols-2 gap-6" id="news-card"></div>
-        </main>
-
-        <!-- JavaScript File Linked  -->
-        <script src="JavaScript/utility.js"></script>
-        <script src="JavaScript/scripts.js"></script>
+        <!-- Flowbite Linked -->
+        <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
     </body>
 </html>

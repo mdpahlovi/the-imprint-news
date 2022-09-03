@@ -44,7 +44,7 @@ function loadNewsCard(newsData) {
                             ${newsItem.author.published_date?.split(" ")[0]}</p>
                         </div>
                     </div>
-                    <h5 class="font-medium">${newsItem.total_view}</h5>
+                    <h5 class="font-medium"><i class="fa-solid fa-eye"></i> ${newsItem.total_view}</h5>
                     <button class="group btn btn-secondary">Read More <span class="btn-animation"></span>
                     </button>
                 </div>
