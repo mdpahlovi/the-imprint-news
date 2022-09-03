@@ -30,10 +30,12 @@ function loadNewsCard(newsData) {
         const div = document.createElement("div");
         div.classList.add("flex", "flex-col", "items-center", "sm:flex-row", "border", "rounded-xl");
         div.innerHTML = `
-            <img class="w-full sm:w-[244px] sm:h-[300px]" src=${newsItem.thumbnail_url} alt="" />
+            <img class="p-6 pb-0 sm:pb-6 sm:pr-0 w-full sm:w-[244px] sm:h-[300px]" src=${
+                newsItem.thumbnail_url
+            } alt="" />
             <div class="p-6 flex flex-col justify-start gap-3">
                 <h5 class="text-xl md:text-2xl font-medium">${newsItem.title}</h5>
-                <p class="max-h-24 overflow-hidden text-ellipsis">
+                <p class="max-h-48 sm:max-h-[68px] md:max-h-24 overflow-hidden text-ellipsis">
                 ${newsItem.details.slice(0, 400)}</p>
                 <div class="flex flex-wrap gap-x-4 gap-y-3 justify-between items-center">
                     <div class="flex gap-2">
