@@ -1,4 +1,4 @@
-//  Loader FUnction
+//  Loader Function
 const toggleLoader = (isLoading) => {
     const loader = document.getElementById("loader");
     if (isLoading) {

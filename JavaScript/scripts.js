@@ -34,6 +34,11 @@ function loadNewsData(item) {
 }
 
 function loadNewsCard(newsData) {
+    document.getElementById("sort-btn").addEventListener("click", function () {
+        newsData.sort((a, b) => {
+            return b.total_view - a.total_view;
+        });
+    });
     const totalNews = document.getElementById("total-news");
     totalNews.innerText = `${newsData.length}`;
     document.getElementById("news-card").innerHTML = "";
