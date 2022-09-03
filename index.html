@@ -18,6 +18,13 @@
             referrerpolicy="no-referrer"
         />
 
+        <!-- Components Library -->
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+
         <!-- Tailwind CSS Linked -->
         <script src="https://cdn.tailwindcss.com"></script>
 
@@ -50,13 +57,13 @@
         <!-- Reusable Custom TailwindCSS components -->
         <style type="text/tailwindcss">
             @layer components {
-                .btn {
+                .button {
                     @apply px-4 py-2 font-medium rounded;
                 }
-                .btn-secondary {
+                .button-secondary {
                     @apply relative border border-accent bg-light text-accent hover:bg-accent hover:text-light hover:transition hover:ease-in hover:delay-150;
                 }
-                .btn-animation {
+                .button-animation {
                     @apply absolute w-full h-full bg-accent border border-accent rounded left-0 top-0 transition duration-200 ease-in transform translate-x-1 translate-y-1 group-hover:-translate-x-0 group-hover:-translate-y-0 -z-10;
                 }
                 .nav-item {
@@ -121,8 +128,12 @@
                     </select>
                 </div>
                 <div class="hidden sm:flex gap-7">
-                    <button class="group btn btn-secondary">Today's Pick <span class="btn-animation"></span></button>
-                    <button class="group btn btn-secondary">Trending <span class="btn-animation"></span></button>
+                    <button class="group button button-secondary">
+                        Today's Pick <span class="button-animation"></span>
+                    </button>
+                    <button class="group button button-secondary">
+                        Trending <span class="button-animation"></span>
+                    </button>
                 </div>
             </div>
             <!-- News Card Section -->
@@ -134,8 +145,40 @@
             <h3 class="font-normal text-center">Copyright @ 2022 All Rights Reserved by The Imprint.</h3>
         </footer>
 
+        <!-- Modal -->
+        <div
+            class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
+            id="exampleModalScrollable"
+            tabindex="-1"
+            aria-labelledby="exampleModalScrollableLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog modal-dialog-scrollable relative w-auto pointer-events-none">
+                <div
+                    class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current"
+                >
+                    <div
+                        class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md"
+                    >
+                        <h5 class="text-xl font-medium leading-normal" id="exampleModalScrollableLabel"></h5>
+                    </div>
+                    <div class="modal-body relative p-4">
+                        <p id="news-details"></p>
+                    </div>
+                    <div
+                        class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md"
+                    >
+                        <button type="button" class="group button button-secondary" data-bs-dismiss="modal">
+                            Close <span class="button-animation"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- JavaScript File Linked  -->
         <script src="JavaScript/utility.js"></script>
         <script src="JavaScript/scripts.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
     </body>
 </html>

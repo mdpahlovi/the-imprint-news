@@ -59,16 +59,31 @@ function loadNewsCard(newsData) {
                         </div>
                     </div>
                     <h5 class="font-medium"><i class="fa-solid fa-eye"></i> ${newsItem.total_view}</h5>
-                    <button class="group btn btn-secondary" id="card-btn">Read More <span class="btn-animation"></span>
+                    <button class="group button button-secondary" onclick="openNewsData('${newsItem._id}')" 
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModalScrollable">
+                        View More <span class="button-animation"></span>
                     </button>
                 </div>
             </div>`;
         newsCard.appendChild(div);
-        console.log(newsItem);
         toggleLoader(false);
     });
 }
 
-document.getElementById("card-btn").addEventListener("click", () => {
-    console.log("Clicked");
-});
+function openNewsData(newsId) {
+    const newsUrl = `https://openapi.programming-hero.com/api/news/${newsId}`;
+    fetch(newsUrl)
+        .then((response) => response.json())
+        .then((newsData) => openModalData(newsData.data[0]))
+        .catch((error) =>
+            alert(`Some Mistake Happened on :
+                ${newsUrl}
+                ${error}`)
+        );
+}
+
+function openModalData(newsData) {
+    document.getElementById("exampleModalScrollableLabel").innerText = `${newsData.title}`;
+    document.getElementById("news-details").innerText = `${newsData.details}`;
+}
