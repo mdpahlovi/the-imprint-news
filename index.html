@@ -69,6 +69,20 @@
         </style>
     </head>
     <body>
+        <!-- Loader -->
+        <section class="hidden" id="loader">
+            <div class="absolute bg-white w-full h-screen flex justify-center items-center z-50">
+                <iframe
+                    src="https://giphy.com/embed/feN0YJbVs0fwA"
+                    width="240px"
+                    height="240px"
+                    frameborder="0"
+                    class="giphy-embed"
+                    allowfullscreen
+                ></iframe>
+            </div>
+        </section>
+
         <header>
             <!-- Navigation Bar -->
             <nav class="container mx-auto px-6 h-16 sm:h-20 flex justify-between items-center">
@@ -95,8 +109,12 @@
             <!-- Sort By Section -->
             <div class="flex justify-between">
                 <div>
-                    <label for="countries" class="font-medium">Sort By View : </label>
-                    <select id="countries" class="px-1 py-2 bg-light rounded text-sm font-medium">
+                    <label for="sort-container" class="font-medium">Sort By View : </label>
+                    <select
+                        onchange="getSelectValue()"
+                        id="sort-container"
+                        class="px-1 py-2 bg-light rounded text-sm font-medium"
+                    >
                         <option selected>Default</option>
                         <option value="view">View</option>
                         <option value="time">Time</option>

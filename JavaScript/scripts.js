@@ -1,3 +1,4 @@
+toggleLoader(true);
 fetch("https://openapi.programming-hero.com/api/news/categories")
     .then((response) => response.json())
     .then((newsCategoryData) => newsNav(newsCategoryData.data.news_category))
@@ -12,6 +13,7 @@ function newsNav(navItems) {
         const div = document.createElement("div");
         div.innerHTML = `<h3 class="nav-news" onclick="loadNewsData('${item.category_id},${item.category_name}')">${item.category_name}</h3>`;
         newsCategory.appendChild(div);
+        toggleLoader(false);
     });
 }
 
@@ -19,6 +21,7 @@ function loadNewsData(item) {
     const itemArray = item.split(",");
     const newsCategory = document.getElementById("category");
     newsCategory.innerText = `${itemArray[1]}`;
+    toggleLoader(true);
     const url = `https://openapi.programming-hero.com/api/news/category/${itemArray[0]}`;
     fetch(url)
         .then((response) => response.json())
@@ -50,17 +53,22 @@ function loadNewsCard(newsData) {
                     <div class="flex gap-2">
                         <img class="w-10 rounded-full" src=${newsItem.author.img} alt="" />
                         <div>
-                            <h5 class="font-medium">${newsItem.author.name}</h5>
+                            <h5 class="font-medium">${newsItem.author.name ?? "No Data Found"}</h5>
                             <p class="text-sm">
-                            ${newsItem.author.published_date?.split(" ")[0]}</p>
+                            ${newsItem.author.published_date?.split(" ")[0] ?? "Not Found"}</p>
                         </div>
                     </div>
                     <h5 class="font-medium"><i class="fa-solid fa-eye"></i> ${newsItem.total_view}</h5>
-                    <button class="group btn btn-secondary">Read More <span class="btn-animation"></span>
+                    <button class="group btn btn-secondary" id="card-btn">Read More <span class="btn-animation"></span>
                     </button>
                 </div>
             </div>`;
         newsCard.appendChild(div);
         console.log(newsItem);
+        toggleLoader(false);
     });
 }
+
+document.getElementById("card-btn").addEventListener("click", () => {
+    console.log("Clicked");
+});
