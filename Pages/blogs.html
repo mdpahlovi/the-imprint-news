@@ -81,11 +81,52 @@
                 </div>
             </nav>
             <hr class="container mx-auto p-[0.5px] bg-gray-400" />
-            <section
-                class="w-full h-[600px] bg-cover bg-center"
-                style="background-image: url(../Images/blogs-bg.jpg)"
-            ></section>
+            <section class="container mx-auto relative">
+                <img class="w-full" src="../Images/blogs-bg.jpg" alt="" />
+                <div
+                    class="absolute w-full h-full text-5xl font-semibold left-0 top-0 px-6 flex justify-center items-center"
+                >
+                    Explore Our Blog
+                </div>
+            </section>
         </header>
+
+        <main class="container mx-auto px-6 my-12 grid grid-cols-2 gap-6">
+            <div class="border rounded-lg flex flex-col gap-4 p-6">
+                <h3 class="text-2xl font-medium">Difference between var , let and const ?</h3>
+                <p>
+                    <span class="font-semibold">Ans :</span> Variables declared with var it means variables defined
+                    outside the function can be accessed globally. and variables defined Let & Const inside a particular
+                    function can be accessed within the function. Let can be re define. But const cannot be re define.
+                </p>
+            </div>
+            <div class="border rounded-lg flex flex-col gap-4 p-6">
+                <h3 class="text-2xl font-medium">Difference between arrow and regular function ?</h3>
+                <p>
+                    <span class="font-semibold">Ans :</span> Unlike regular functions, arrow functions do not have their
+                    own this . The value of this inside an arrow function remains the same throughout the lifecycle of
+                    the function and is always bound to the value of this in the closest non-arrow parent function.
+                </p>
+            </div>
+            <div class="border rounded-lg flex flex-col gap-4 p-6">
+                <h3 class="text-2xl font-medium">What are the uses of map foreach filter and find ?</h3>
+                <p>
+                    <span class="font-semibold">Ans :</span> The .map(), when you want to transform elements in an
+                    array. The .forEach(), method is just a different way of doing this. The following two code examples
+                    effectively accomplish the same thing. The .filter(), when you want to select a subset of multiple
+                    elements from an array. The .find(), When you want to select a single element from an array.
+                </p>
+            </div>
+            <div class="border rounded-lg flex flex-col gap-4 p-6">
+                <h3 class="text-2xl font-medium">What is template string in javascript ?</h3>
+                <p>
+                    <span class="font-semibold">Ans :</span> Template strings are a powerful feature of modern
+                    JavaScript released in ES6. It lets us insert/interpolate variables and expressions into strings
+                    without needing to concatenate like in older versions of JavaScript. It allows us to create strings
+                    that are complex and contain dynamic elements.
+                </p>
+            </div>
+        </main>
 
         <!-- Flowbite Linked -->
         <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
