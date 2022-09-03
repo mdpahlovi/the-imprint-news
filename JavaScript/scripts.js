@@ -1,6 +1,10 @@
 fetch("https://openapi.programming-hero.com/api/news/categories")
     .then((response) => response.json())
-    .then((newsCategoryData) => newsNav(newsCategoryData.data.news_category));
+    .then((newsCategoryData) => newsNav(newsCategoryData.data.news_category))
+    .catch((error) =>
+        alert(`Some Mistake Happened on :
+            ${error}`)
+    );
 
 function newsNav(navItems) {
     navItems.map((item) => {
@@ -18,7 +22,12 @@ function loadNewsData(item) {
     const url = `https://openapi.programming-hero.com/api/news/category/${itemArray[0]}`;
     fetch(url)
         .then((response) => response.json())
-        .then((newsData) => loadNewsCard(newsData.data));
+        .then((newsData) => loadNewsCard(newsData.data))
+        .catch((error) =>
+            alert(`Some Mistake Happened on :
+                ${url}
+                ${error}`)
+        );
 }
 
 function loadNewsCard(newsData) {
