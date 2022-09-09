@@ -7,3 +7,13 @@ const toggleLoader = (isLoading) => {
         loader.classList.add("hidden");
     }
 };
+
+// No Data Found
+function isDataNotFound(data) {
+    if (data == "" || data == "null" || data == "system" || data == undefined) {
+        const defaultValue = "Nothing Found";
+        return defaultValue;
+    } else {
+        return data;
+    }
+}

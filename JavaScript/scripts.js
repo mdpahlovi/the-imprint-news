@@ -53,13 +53,13 @@ function loadNewsCard(newsData) {
             } alt="" />
             <div class="p-6 flex flex-col justify-start gap-3">
                 <h5 class="text-xl md:text-2xl font-medium">${newsItem.title}</h5>
-                <p class="max-h-48 sm:max-h-[68px] md:max-h-24 overflow-hidden text-ellipsis">
-                ${newsItem.details.slice(0, 400)}</p>
+                <p class="line-clamp-6 sm:line-clamp-3 md:line-clamp-4">
+                ${newsItem.details}</p>
                 <div class="flex flex-wrap gap-x-4 gap-y-3 justify-between items-center">
                     <div class="flex gap-2">
                         <img class="w-10 rounded-full" src=${newsItem.author.img} alt="" />
                         <div>
-                            <h5 class="font-medium">${newsItem.author.name ?? "No Data Found"}</h5>
+                            <h5 class="font-medium">${isDataNotFound(newsItem.author.name)}</h5>
                             <p class="text-sm">
                             ${newsItem.author.published_date?.split(" ")[0] ?? "Not Found"}</p>
                         </div>
@@ -91,5 +91,17 @@ function openNewsData(newsId) {
 
 function openModalData(newsData) {
     document.getElementById("exampleModalScrollableLabel").innerText = `${newsData.title}`;
-    document.getElementById("news-details").innerText = `${newsData.details}`;
+    document.getElementById("modalBody").innerHTML = `
+        <img class="mb-1" src="${newsData.image_url}">
+        <div class="flex gap-2">
+            <img class="w-10 rounded-full" src=${newsData.author.img} alt="" />
+            <div>
+                <h5 class="font-medium">${isDataNotFound(newsData.author.name)}</h5>
+                <p class="text-sm">
+                ${newsData.author.published_date?.split(" ")[0] ?? "Not Found"}
+                </p>
+            </div>
+        </div>
+        <p>${newsData.details}</p>`;
+    console.log(newsData);
 }
