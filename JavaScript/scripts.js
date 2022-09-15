@@ -7,7 +7,7 @@ fetch("https://openapi.programming-hero.com/api/news/categories")
             ${error}`)
     );
 
-function newsNav(navItems) {
+const newsNav = (navItems) => {
     navItems.map((item) => {
         const newsCategory = document.getElementById("news-category");
         const div = document.createElement("div");
@@ -15,9 +15,9 @@ function newsNav(navItems) {
         newsCategory.appendChild(div);
         toggleLoader(false);
     });
-}
+};
 
-function loadNewsData(item) {
+const loadNewsData = (item) => {
     const itemArray = item.split(",");
     setInnerText("category", `${itemArray[1]}`);
     isActive(`${itemArray[1]}`);
@@ -25,40 +25,35 @@ function loadNewsData(item) {
     const url = `https://openapi.programming-hero.com/api/news/category/${itemArray[0]}`;
     fetch(url)
         .then((response) => response.json())
-        .then((newsData) => loadNewsCard(newsData.data))
+        .then((newsData) => loadNewsArray(newsData.data))
         .catch((error) =>
             alert(`Some Mistake Happened on :
                 ${url}
                 ${error}`)
         );
-}
+};
 
-function loadNewsCard(newsData) {
-    const sortContainer = document.getElementById("sort-container").value;
-    if (sortContainer == "view") {
-        newsData.sort((a, b) => {
-            return b.total_view - a.total_view;
-        });
-    }
+const loadNewsArray = (newsData) => {
     setInnerText("total-news", `${newsData.length}`);
+    const sortedNews = sortNews(newsData);
     document.getElementById("news-card").innerHTML = "";
-    displayNews(newsData);
+    displayNews(sortedNews);
     toggleLoader(false);
-}
+};
 
-function openNewsData(newsId) {
+const loadNewData = (newsId) => {
     const newsUrl = `https://openapi.programming-hero.com/api/news/${newsId}`;
     fetch(newsUrl)
         .then((response) => response.json())
-        .then((newsData) => openModalData(newsData.data[0]))
+        .then((newsData) => openModal(newsData.data[0]))
         .catch((error) =>
             alert(`Some Mistake Happened on :
                 ${newsUrl}
                 ${error}`)
         );
-}
+};
 
-function openModalData(newsData) {
+const openModal = (newsData) => {
     document.getElementById("exampleModalScrollableLabel").innerText = `${newsData.title}`;
     document.getElementById("modalBody").innerHTML = `
         <img class="mb-1" src="${newsData.image_url}">
@@ -73,4 +68,4 @@ function openModalData(newsData) {
         </div>
         <p>${newsData.details}</p>`;
     console.log(newsData);
-}
+};

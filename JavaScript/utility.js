@@ -18,7 +18,7 @@ const isDataNotFound = (data) => {
     }
 };
 
-// Display News
+// Display News Card
 const displayNews = (newsArray) => {
     newsArray.map((newsItem) => {
         const newsCard = document.getElementById("news-card");
@@ -42,7 +42,7 @@ const displayNews = (newsArray) => {
                         </div>
                     </div>
                     <h5 class="font-medium"><i class="fa-solid fa-eye"></i> ${newsItem.total_view}</h5>
-                    <button class="group button button-secondary" onclick="openNewsData('${newsItem._id}')" 
+                    <button class="group button button-secondary" onclick="loadNewData('${newsItem._id}')" 
                     data-bs-toggle="modal"
                     data-bs-target="#exampleModalScrollable">
                         View More <span class="button-animation"></span>
@@ -55,6 +55,11 @@ const displayNews = (newsArray) => {
 
 // Active Function
 const isActive = (id) => {
+    const newsCategory = document.querySelectorAll("#news-category > div");
+    newsCategory.forEach((news) => {
+        news.classList.remove("nav-news-active");
+        news.classList.add("text-gray-500");
+    });
     const navId = document.getElementById(id);
     if (navId) {
         navId.classList.add("nav-news-active");
@@ -66,4 +71,16 @@ const isActive = (id) => {
 const setInnerText = (id, value) => {
     const newsCategory = document.getElementById(id);
     newsCategory.innerText = value;
+};
+
+// Test
+
+const sortNews = (array) => {
+    const sortContainer = document.getElementById("sort-container");
+    if (sortContainer.value === "view") {
+        array.sort((a, b) => {
+            return b.total_view - a.total_view;
+        });
+    }
+    return array;
 };
