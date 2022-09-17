@@ -53,9 +53,9 @@ const displayNews = (newsArray) => {
     });
 };
 
-// Active Function
+//Nav item Active Function
 const isActive = (id) => {
-    const newsCategory = document.querySelectorAll("#news-category > div");
+    const newsCategory = document.querySelectorAll("#news-category > div > h3");
     newsCategory.forEach((news) => {
         news.classList.remove("nav-news-active");
         news.classList.add("text-gray-500");
@@ -65,6 +65,17 @@ const isActive = (id) => {
         navId.classList.add("nav-news-active");
         navId.classList.remove("text-gray-500");
     }
+};
+
+const homeActive = () => {
+    const newsCategory = document.querySelectorAll("#news-category > div > h3");
+    newsCategory.forEach((news) => {
+        news.classList.remove("nav-news-active");
+        news.classList.add("text-gray-500");
+    });
+    const navId = document.getElementById("home");
+    navId.classList.add("nav-news-active");
+    navId.classList.remove("text-gray-500");
 };
 
 // setInnerText
