@@ -1,3 +1,15 @@
+// Load Data
+const loadData = async (url) => {
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+        return data;
+    } catch (error) {
+        alert(`Error : ${error.message}
+    In : ${url}`);
+    }
+};
+
 //  Loader Function
 const toggleLoader = (isLoading) => {
     const loader = document.getElementById("loader");

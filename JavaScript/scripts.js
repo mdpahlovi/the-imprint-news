@@ -1,11 +1,7 @@
 toggleLoader(true);
-fetch("https://openapi.programming-hero.com/api/news/categories")
-    .then((response) => response.json())
-    .then((newsCategoryData) => newsNav(newsCategoryData.data.news_category))
-    .catch((error) =>
-        alert(`Some Mistake Happened on :
-            ${error}`)
-    );
+
+const categoryUrl = "https://openapi.programming-hero.com/api/news/categories";
+loadData(categoryUrl).then((data) => newsNav(data.data.news_category));
 
 const newsNav = (navItems) => {
     navItems.map((item) => {
@@ -23,14 +19,7 @@ const loadNewsData = (item) => {
     isActive(`${itemArray[1]}`);
     toggleLoader(true);
     const url = `https://openapi.programming-hero.com/api/news/category/${itemArray[0]}`;
-    fetch(url)
-        .then((response) => response.json())
-        .then((newsData) => loadNewsArray(newsData.data))
-        .catch((error) =>
-            alert(`Some Mistake Happened on :
-                ${url}
-                ${error}`)
-        );
+    loadData(url).then((newsData) => loadNewsArray(newsData.data));
 };
 
 const loadNewsArray = (newsData) => {
@@ -43,14 +32,7 @@ const loadNewsArray = (newsData) => {
 
 const loadNewData = (newsId) => {
     const newsUrl = `https://openapi.programming-hero.com/api/news/${newsId}`;
-    fetch(newsUrl)
-        .then((response) => response.json())
-        .then((newsData) => openModal(newsData.data[0]))
-        .catch((error) =>
-            alert(`Some Mistake Happened on :
-                ${newsUrl}
-                ${error}`)
-        );
+    loadData(newsUrl).then((newsData) => openModal(newsData.data[0]));
 };
 
 const openModal = (newsData) => {
@@ -67,5 +49,4 @@ const openModal = (newsData) => {
             </div>
         </div>
         <p>${newsData.details}</p>`;
-    console.log(newsData);
 };
